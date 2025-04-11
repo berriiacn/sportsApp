@@ -1,14 +1,19 @@
 import './App.css'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import Login from './components/Login.jsx';
+import Register from './components/Register.jsx';
+import Dashboard from './components/Dashboard.jsx';
 
 function App() {
   return (
-    <div className=''>
-      <div className='h-14 flex justify-center '>
-        <h1 className='font-bold'>Sports App</h1>
-      </div>
-      <div className='h-px w-full bg-red-800'></div>
-      <div className='font-bold'>Hello world</div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/login" element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
